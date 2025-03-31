@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Napoli Comicon 2025</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('comicon_blurred_darkened.jpg') center/cover no-repeat fixed;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .cookie-box {
+      background-color: #1c1f2a;
+      color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 90%;
+      width: 500px;
+      text-align: left;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .cookie-box h2 {
+      color: #ff8300;
+      margin-top: 0;
+    }
+
+    .cookie-box p {
+      font-size: 0.95em;
+      line-height: 1.5;
+      color: #ddd;
+    }
+
+    .cookie-box .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .cookie-box button {
+      padding: 10px 25px;
+      background-color: #ff8300;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    video {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="cookieOverlay">
+    <div class="cookie-box">
+      <h2>Informativa sui Cookie</h2>
+      <p>
+        Utilizziamo cookie tecnici e, previo consenso, cookie analitici e di profilazione per migliorare
+        l’esperienza utente e fornire contenuti personalizzati. Continuando la navigazione o cliccando su “Accetta”
+        si accettano le nostre <strong>Condizioni d’Uso</strong> e la <strong>Privacy Policy</strong> in conformità al GDPR.
+      </p>
+      <div class="buttons">
+        <button onclick="triggerRickroll()">Accetta tutti i cookie</button>
+        <button onclick="triggerRickroll()">Rifiuta</button>
+      </div>
+    </div>
+  </div>
+
+  <video id="rickroll" src="rickroll.mp4" autoplay muted playsinline></video>
+
+  <script>
+    function triggerRickroll() {
+      document.getElementById('cookieOverlay').style.display = 'none';
+      const video = document.getElementById('rickroll');
+      video.style.display = 'block';
+      video.muted = false;
+      video.volume = 1.0;
+      video.play();
+
+      // Richiesta fullscreen
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    }
+  </script>
+
+</body>
+</html>
